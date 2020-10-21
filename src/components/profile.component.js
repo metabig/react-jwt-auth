@@ -26,7 +26,7 @@ export default class Profile extends Component {
     }
 
     const { currentUser } = this.state;
-
+    
     return (
       <div className="container">
         {(this.state.userReady) ?
@@ -43,17 +43,14 @@ export default class Profile extends Component {
         </p>
         <p>
           <strong>Id:</strong>{" "}
-          {currentUser.id}
+          {currentUser._id}
         </p>
         <p>
           <strong>Email:</strong>{" "}
           {currentUser.email}
         </p>
-        <strong>Authorities:</strong>
-        <ul>
-          {currentUser.roles &&
-            currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
-        </ul>
+        <strong>Role:</strong>{" "}
+          {currentUser.role}
       </div>: null}
       </div>
     );

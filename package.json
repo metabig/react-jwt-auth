@@ -1,5 +1,5 @@
 {
-  "name": "react-jwt-auth",
+  "name": "data-validation",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,7 +11,7 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.0",
+    "react-scripts": "^3.4.3",
     "react-validation": "^3.0.7",
     "validator": "^12.2.0"
   },

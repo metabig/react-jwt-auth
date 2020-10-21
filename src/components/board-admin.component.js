@@ -15,7 +15,7 @@ export default class BoardAdmin extends Component {
     UserService.getAdminBoard().then(
       response => {
         this.setState({
-          content: response.data
+          content: response.data.msg
         });
       },
       error => {
