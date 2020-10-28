@@ -30,3 +30,268 @@ label {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
+/*
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* {
+  font-size: 24px;
+}*/
+
+.main-container {
+  font-family: 'Roboto', sans-serif;
+  padding: 2%;
+  display: flex;
+  font-size: 24px;
+  flex-direction: row;
+}
+
+.no-margin {
+  margin-top: 0 !important;
+}
+
+/*________CARD___________*/
+
+.cards-container {
+  padding: 0 1%;
+  width: 65%;
+  text-align: center;
+}
+
+button {
+  padding: 15px 30px;
+  margin-top: 32px;
+  text-align: center;
+  color: white;
+  background-color: #008CBA;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+  transition: 0.1s;
+}
+
+.cards-container button:hover {
+  padding: 15px 30px;
+  margin-top: 32px;
+  text-align: center;
+  color: white;
+  background-color: #008CBA;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+  transition: 0.1s;
+}
+
+.card2 {
+  padding: 1%;
+  border-radius: 2px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+  margin-top: 32px;
+}
+
+.card2 h1 {
+  margin: 0;
+  padding: 15px;
+  font-size: 32px;
+  font-weight: 400;
+  text-align: left;
+  border-bottom: solid 1px lightgray;
+}
+
+.alert-logo {
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+}
+
+.tooltip {
+  padding: 0 !important;
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: auto;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 110%;
+  white-space: nowrap;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+/*________FILECONTAINER___________*/
+
+.file-container {
+  position: fixed;
+  right: 0;
+  width: 35%;
+  margin-top: 1%;
+  text-align: center;
+}
+
+.upload-area {
+  background-color: rgba(196, 196, 196, 0.2);
+  border-radius: 15px;
+  height: 300px;
+  margin: 0 10%;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  border: 4px dashed rgba(0, 0, 0, 0.44);
+  margin-bottom: 2%;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  word-break: break-word;
+}
+
+.upload-area p {
+  word-wrap: break-word;
+}
+
+.download_logo {
+  opacity: 0.4;
+  width: 100px;
+  margin-top: 5%;
+}
+
+.file-card {
+  border-radius: 2px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 5%;
+  margin-bottom: 5%;
+  align-items: center;
+}
+
+.file-card p {
+  padding: 0 10px;
+  margin: 16px;
+}
+
+.file-card .file-title {
+  width: 40%;
+  text-align: left;
+  padding-left: 8%;
+  word-wrap: break-word;
+}
+
+.file-size {
+  white-space: nowrap;
+}
+
+/*_______INPUTS_________________*/
+
+.inputs-container {
+  font-size: 24px;
+  margin: 2.5% 5%;
+}
+
+.inputs-container section {
+  padding: 10px;
+  display: flex;
+}
+
+.inputs-container section label {
+  white-space: nowrap;
+  margin-right: 8px;
+}
+
+.inputs-container section input {
+  font-size: 24px;
+  width: 100%;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+}
+
+.inputs-container section textarea {
+  width: 100%;
+}
+
+.input-error {
+  border-color: red;
+}
+
+/*___MODAL__*/
+
+.modal2 {
+  width: 25%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -17.5%;
+  margin-top: -17.5%;
+  padding: 1%;
+  background-color: white;
+  text-align: center;
+  box-shadow: 0px 0px 0px 10000px rgba(0, 0, 0, 0.18), 0px 0px 20px -10px rgba(0, 0, 0, 0.75);
+  border-radius: 3px;
+}
+
+/*___EXTRA__*/
+
+.delete-container {
+  width: 30%;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close {
+  background: red;
+  width: 60px;
+  height: 60px;
+  position: relative;
+}
+
+.close:after {
+  content: '';
+  height: 60px;
+  border-left: 2px solid #fff;
+  position: absolute;
+  transform: rotate(45deg);
+  left: 28px;
+}
+
+.close:before {
+  content: '';
+  height: 60px;
+  border-left: 2px solid #fff;
+  position: absolute;
+  transform: rotate(-45deg);
+  left: 28px;
+}
+
+.inSectionTitle {
+  font-weight: 400;
+  font-size: 30px;
+  margin-left: -2%;
+}

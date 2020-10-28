@@ -1,56 +1,53 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react"
 
-import UserService from "../services/user.service";
-import HbaseService from "../services/hbase.service";
+import AuthService from "../services/auth.service"
+import UserService from "../services/user.service"
+import HbaseService from "../services/hbase.service"
+const converter = require('base64-arraybuffer')
 
-export default class BoardUser extends Component {
-  constructor(props) {
-    super(props);
+export default function BoardUser() {
+  const [content, setContent] = useState("")
+  const [role, setRole] = useState("untrusted")
+  const [hbase, setHbase] = useState("")
 
-    this.state = {
-      content: "",
-      role: 'untrusted',
-      hbase: ""
-    };
-  }
-
-  componentDidMount() {
+  useEffect(() => {
+    const user = AuthService.getCurrentUser()
+    if (user) setRole(user.role)
     UserService.getUserBoard().then(
       response => {
-        console.log(response)
-        this.setState({
-          content: response.data,
-          role: response.role
-        });
+        setContent(response.data)
       },
       error => {
-        this.setState({
-          content:
+        setContent(
             (error.response &&
               error.response.data &&
               error.response.data.message) ||
             error.message ||
-            error.toString()
-        });
-      }
+            error.toString())
+            }
     )
-    HbaseService.getMetadata(0, 10).then(
-      res => {
-        console.log(res.data)
-        this.setState({
-          hbase: res.data
-        })
-      }
-    )
+    if(role === "admin" || role === "trusted")
+      HbaseService.getMetadata(0, 50).then(
+        res => {
+          setHbase(res.data)
+        }
+      )  
+  }, [role])
+ 
 
+  const handleDownload = (filename, s) => {
+    HbaseService.getData(s).then(res => {
+      const data = res.data["$"]
+      console.log(data)
+      console.log(data.length)
+      var FileSaver = require('file-saver');
+      var blob = new Blob([converter.decode(res.data["$"])]);
+      FileSaver.saveAs(blob, filename);
+    })
   }
 
-  handleDownload(s) {
-    console.log(s)
-  }
-
-  getTable = (metadata)  => {
-    if (this.state.role !== 'untrusted') {
+  const getTable = (metadata)  => {
+    if (role !== 'untrusted') {
       if (metadata) {
         return (
           <table className="table">
@@ -81,7 +78,7 @@ export default class BoardUser extends Component {
                     <td>{row["Confidentiality"]}</td>
                     <td>{row["Classification"]}</td>
                     <td>{row["validation"] ? "valid" : "No"}</td>
-                    <td><button onClick={() => this.handleDownload(row["key"])}>Download</button></td>
+                    <td><button onClick={() => handleDownload(row["filename"], row["key"])}>Download</button></td>
                   </tr>
               )})
             }
@@ -93,16 +90,14 @@ export default class BoardUser extends Component {
     }
   }
 
-  render() {
     return (
       <div className="container">
         <header className="jumbotron">
-          <h3>{this.state.content}</h3>
+          <h3>{content}</h3>
         </header>
         <section>
-          {this.getTable(this.state.hbase)}
+          {getTable(hbase)}
         </section>
       </div>
     )
-  }
 }

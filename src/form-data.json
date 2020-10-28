@@ -1,0 +1,295 @@
+{
+    "cards": [
+        {
+            "title": "Data Source",
+            "inputs": [
+                {
+                    "label": "Data Source Type",
+                    "type": "select",
+                    "options": [
+                        "Vector control teams",
+                        "Hospitals (ITM)",
+                        "Hospitals (cardio-vascular)",
+                        "Hospitals (Digestive)",
+                        "Primary health care",
+                        "Hospitals (Gyn&Obs)",
+                        "Family planning and STI consultation",
+                        "Prison",
+                        "Lab",
+                        "Association of persons affected",
+                        "Blood donation centers",
+                        "Organ transplantation centers",
+                        "Non-govermental (NGOs)",
+                        "Other"
+                    ]
+                },
+                {
+                    "label": "Data Source Name",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "title": "Data Provider",
+            "inputs": [
+                {
+                    "label": "Institution Type",
+                    "type": "select",
+                    "options": [
+                        "Government – Ministry of health",
+                        "Government – Other ministry",
+                        "Government – Institute of public health",
+                        "Government – Other entity",
+                        "Intergovernmental financial institution",
+                        "UN agency",
+                        "Bilateral agency",
+                        "Global health initiative",
+                        "Foundation",
+                        "WHO collaborating center",
+                        "Academic institutions",
+                        "Non governmental organization",
+                        "Faith-based organization",
+                        "Civil society",
+                        "Private sector – Health care provider",
+                        "Private sector - Drug manufacturer",
+                        "Private sector – Diagnostic kits manufacturer",
+                        "Private sector – Other",
+                        "Other"
+                    ]
+                },
+                {
+                    "label": "Institution Name",
+                    "type": "text"
+                },
+                {
+                    "label": "Institution Address",
+                    "type": "text"
+                },
+                {
+                    "label": "Institution City",
+                    "type": "text"
+                },
+                {
+                    "label": "Institution Country",
+                    "type": "text"
+                },
+                {
+                    "label": "Contact Person",
+                    "type": "text"
+                },
+                {
+                    "label": "E-mail",
+                    "type": "email"
+                },
+                {
+                    "label": "Telephone",
+                    "type": "number"
+                },
+                {
+                    "label": "Institution Coordinates (Latitude)",
+                    "type": "text",
+                    "required": false
+                },{
+                    "label": "Institution Coordinates (Longitude)",
+                    "type": "text",
+                    "required": false
+                },
+                {
+                    "label": "Other Info",
+                    "type": "textarea",
+                    "required": false
+                }
+            ]
+        },
+        {
+            "title": "Information on the data provided",
+            "inputs": [
+                {
+                    "label": "Select disease",
+                    "type": "select",
+                    "custom_function": "chagas_fnc",
+                    "signal": "chagas",
+                    "options": [
+                        "General",
+                        "Chagas disease",
+                        "Rabies",
+                        "Leishmaniosis",
+                        "Buruli ulcer",
+                        "Cutaneous leishmaniasis",
+                        "Yaws",
+                        "HAT (Sleeping sickness)",
+                        "Leprosy",
+                        "Visceral Leishmaniasis",
+                        "Mycetoma",
+                        "Other"
+                    ]
+                },
+                {
+                    "label": "Chagas Package",
+                    "type": "select",
+                    "condition": "chagas",
+                    "options": [
+                        "Healthcare",
+                        "Health system",
+                        "Normative",
+                        "Vector control"
+                    ]
+                },
+                {
+                    "label": "Data Type",
+                    "type": "select",
+                    "options": [
+                        "Individual Data",
+                        "Agregated Data",
+                        "Estimated Data",
+                        "Survey Data"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Confidentiality",
+            "inputs": [
+                {
+                    "label": "Confidentiality",
+                    "type": "select",
+                    "signal": "shared",
+                    "custom_function": "shared_fnc",
+                    "options": [
+                        "Public",
+                        "Shareable with WHO and 3rd parties",
+                        "Confidential",
+                        "Incomplete status"
+                    ]
+                },
+                {
+                    "label": "Describe under which conditions, if any:",
+                    "type": "textarea",
+                    "condition": "shared"
+                }
+            ]
+        },
+        {
+            "title": "Data Source Classification",
+            "inputs": [
+                {
+                    "label": "Classification",
+                    "type": "select",
+                    "options": [
+                        "Unconfirmed",
+                        "Unofficial",
+                        "Official"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Geographic and Temporal information on the data provided",
+            "inputs": [
+                {
+                    "label": "Geographical level",
+                    "type": "select",
+                    "options": [
+                        "FACILITY",
+                        "3RD-LEVEL (CITY,VILLAGE)",
+                        "2ND-LEVEL (PROVINCE)",
+                        "1ST-LEVEL (REGION)",
+                        "NATIONAL",
+                        "SUPRANATIONAL",
+                        "OTHER",
+                        "NO INFO"
+                    ]
+                },
+                {
+                    "label": "Frequency",
+                    "type": "select",
+                    "options": [
+                        "Day",
+                        "Week",
+                        "Month",
+                        "Quarter",
+                        "Year",
+                        "Biennal",
+                        "Triennal",
+                        "Other",
+                        "No info"
+                    ]
+                },
+                {
+                    "label": "Period to which the data refer",
+                    "type": "noinput"
+                },
+                {
+                    "label": "Date From",
+                    "type": "date"
+                },
+                {
+                    "label": "Date To",
+                    "type": "date"
+                }
+            ]
+        },
+        {
+            "title": "Data collection technology&format",
+            "inputs": [
+                {
+                    "label": "Technology",
+                    "type": "select",
+                    "options": [
+                        "Local WIDP (DHIS2)",
+                        "Global WIDP (DHIS2)",
+                        "Excel",
+                        "Access DB",
+                        "OTHER"
+                    ]
+                },
+                {
+                    "label": "Exchange Format",
+                    "type": "select",
+                    "options": [
+                        "WIDP Data Transfer APP (DHIS2)",
+                        "CSV",
+                        "XML",
+                        "JSON",
+                        "Database dump",
+                        "Database connection",
+                        "OTHER"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Availability of the data",
+            "inputs": [
+                {
+                    "label": "Is openly aviable?",
+                    "type": "select",
+                    "custom_function": "open_aviability",
+                    "options": [
+                        "No",
+                        "Yes"
+                    ]
+                },
+                {
+                    "label": "URL of the data",
+                    "condition": "open_aviability",
+                    "type": "text"
+                },
+                {
+                    "label": "Is there any publication related?",
+                    "custom_function": "publication_aviability",
+                    "type": "select",
+                    "options": [
+                        "No",
+                        "Yes"
+                    ]
+                },
+                {
+                    "label": "URLs of the related publications",
+                    "condition": "publication_aviability",
+                    "type": "text"
+                }
+            ]
+        }
+    ]
+}
